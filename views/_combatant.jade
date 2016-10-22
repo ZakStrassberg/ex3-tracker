@@ -1,0 +1,8 @@
+script#combatant-template(type='text/x-template')
+  .combatant
+    input(type='checkbox', v-model='c.turnOver')
+    h4(v-show='!c.edit') {{c.init}}
+    h3 {{c.name}}
+    input(type='text', v-show='c.edit ', v-model='c.init', @blur='c.edit=false', @keyup.enter='c.edit=false', @keyup.esc='cancelEdit(c)')
+    button(type='submit', @click='editCombatant(c)') edit
+    button(type='submit', @click="$emit('remove')") X

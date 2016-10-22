@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  #app
+    #tracker
+      transition-group#combatants(name='combatants', tag='div')
+        combatant(v-for='( c, index ) in combatants', v-bind:c='c', @remove="combatants.splice( index, 1 )", :key="c", :class='{active: c == activeCombatant, turnOver: c.turnOver}')
+
+        // TODO: I'm not sure this class declaration is gonna work since turnOver will be in the child. Don't forget v-bind:title="todo"
+      div
+        button(@click='newRound') Next Round (start combat)
+        p(v-if='round !=0') Round{{round}}
+        p(v-if='activeCombatant') {{activeCombatant.name}}is active
+        button(@click='sortCombatants') Sort
+    #controls
+      form(@submit.prevent)
+        h2 Add Combatant
+        label(for='newCombatant[name]') Name:
+          input(name='newCombatant[name]', type='text', v-model.trim='newCombatant.name')
+        label(for='newCombatant[init]') Initiative:
+          input(name='newCombatant[init]', type='text', v-model.number='newCombatant.init')
+        button(type='submit', @click='addCombatant') Add
