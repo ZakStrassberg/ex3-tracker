@@ -1,3 +1,9 @@
+script(type="text/javascript").
+  Vue.component('combatant', {
+  props: ['c'],
+  template: '#combatant-template'
+  })
+
 script#combatant-template(type='text/x-template')
   .combatant
     input(type='checkbox', v-model='c.turnOver')

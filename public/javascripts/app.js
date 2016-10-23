@@ -79,16 +79,4 @@ app = new Vue({
   }
 )
 
-Vue.component('combatant', {
-  props: ['c'],
-  template: '#combatant-template'
-  // data: {
-  //   name: '',
-  //   init: 0
-  // },
-  // mounted: function () {
-  //   this.name = c.name
-  //   this.init = c.init
-  // }
-})
 
