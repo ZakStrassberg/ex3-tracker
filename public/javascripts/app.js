@@ -18,6 +18,7 @@ app = new Vue({
             edit: false,
             turnOver: false
           })
+          this.newCombatant = {}
         }
       },
       removeCombatant: function (object) {
